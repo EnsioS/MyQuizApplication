@@ -3,7 +3,7 @@ wad\repository\QuestionRepository.class
 wad\domain\Answer.class
 wad\QuizApplication.class
 wad\controller\QuestionController.class
-wad\repository\AnswerRepository.class
 wad\repository\QuizRepository.class
+wad\repository\AnswerRepository.class
 wad\domain\Question.class
 wad\controller\QuizController.class

@@ -23,6 +23,11 @@ public class QuizController {
     @Autowired
     private QuestionRepository questionRepository;
     
+    @RequestMapping(value = "/play", method = RequestMethod.GET)
+    public String play() {
+        return "play";
+    }
+    
     @RequestMapping(value = "/quizzes", method = RequestMethod.GET)
     public String getQuizzes(Model model) {
         model.addAttribute("quizzes", quizRepository.findAll());

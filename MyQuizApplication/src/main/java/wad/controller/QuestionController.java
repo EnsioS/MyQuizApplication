@@ -1,5 +1,6 @@
 package wad.controller;
 
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,11 +39,25 @@ public class QuestionController {
     
     @RequestMapping(value = "/question", method = RequestMethod.POST)
     public String postQuestion(@RequestParam Map<String, String> params) {
+        
+        if(params.containsKey("answer")) {
+            Question question = questionRepository.findOne(Long.parseLong(params.get("id")));
+            List<Answer> options = question.getOptions();
+            Answer answer = options.get(Integer.parseInt(params.get("orderNumber")));
+            answer.setAnswer(params.get("answer"));
+            answer.setPoints(Integer.parseInt(params.get("points")));
+            
+            questionRepository.saveAndFlush(question);
+            
+            return "redirect:/quizzes";
+        }
+        
         Question question = new Question();
         question.setQuestion(params.get("questionText"));
         Answer answer1 = new Answer();
         answer1.setAnswer(params.get("answer1"));
         answer1.setPoints(Integer.parseInt(params.get("points1")));
+        answer1.setOrderNumber(0);
         answerRepository.save(answer1);
         
         question.addOption(answer1);

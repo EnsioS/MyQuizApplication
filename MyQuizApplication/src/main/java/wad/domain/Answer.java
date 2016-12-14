@@ -17,7 +17,9 @@ public class Answer extends AbstractPersistable<Long> {
 //    @Max(1000)
 //    @Min(500)
     private int points;
-
+    
+    private int orderNumber;
+    
     public String getAnswer() {
         return answer;
     }
@@ -33,7 +35,13 @@ public class Answer extends AbstractPersistable<Long> {
     public void setPoints(int points) {
         this.points = points;
     }
-    
 
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
     
 }
