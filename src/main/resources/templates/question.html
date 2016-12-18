@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
+    <head>
+        <title>Questionpage</title>
+        <meta charset="UTF-8"/>
+        <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    </head>
+    <body>
+
+
+        <div>
+            <h1 th:if="${question == null}">Create new question</h1>
+            <h1 th:if="${question != null}" th:text="${question.question}">question text</h1>
+        </div >
+
+        <div th:if="${question != null}" >
+                <form th:each="option : ${question.options}"  th:action="@{/{id}/question(id=${quiz.id})}" method="POST">
+                    <input hidden="" type="text" name="id" th:value="${question.id}" />
+                    <input hidden="" type="text" name="orderNumber" th:value="${option.orderNumber}"/>
+                    <input type="text" name="answer" th:value="${option.answer}"/>
+                    <label>Points</label><input type="text" name="points" th:value="${option.points}"/>
+                    <input type="submit" value="update" /><br/>
+                </form>    
+        </div>
+
+        <div th:if="${question == null}" >
+            <p>Options</p>
+            <form th:action="@{/{id}/question(id=${quiz.id})}" method="POST">
+                <span >
+                    <input type="text" name="questionText"/><br/> 
+                    <input type="text" name="answer1"/> <label>Points</label><input type="text" name="points1"/><br/>
+                    <input type="text" name="answer2"/> <label>Points</label><input type="text" name="points2"/><br/>
+                    <input type="text" name="answer3"/> <label>Points</label><input type="text" name="points3"/><br/>
+                    <input type="text" name="answer4"/> <label>Points</label><input type="text" name="points4"/>
+                    <input type="submit" value="create"/>
+                </span>     
+            </form>
+        </div>
+    </body>
+</html>

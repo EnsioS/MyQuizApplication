@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
+    <head>
+        <title>Quizzes</title>
+        <meta charset="UTF-8"></meta>
+        <!-- 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        -->
+    </head>
+    <body>
+        <h1>Your quizzes</h1>
+        
+        <div>
+            <ul>
+                <li th:each="quiz : ${quizzes}" >
+                    <a th:href="@{/quiz/{id}(id=${quiz.id})}" th:text="${quiz.name}" >link to single quiz</a>
+                </li>
+            </ul>    
+        </div>
+        
+        <h2>Add new quiz</h2>
+        
+        <div>
+            <form th:action="@{/quizzes}" method="POST">
+                <input type="text" name ="name"/>
+                <input type="submit" value="add"/>    
+            </form>
+        </div>
+        
+    </body>
+</html>
