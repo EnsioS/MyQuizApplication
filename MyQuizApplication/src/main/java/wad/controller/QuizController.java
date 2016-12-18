@@ -1,9 +1,12 @@
 
 package wad.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,10 +26,6 @@ public class QuizController {
     @Autowired
     private QuestionRepository questionRepository;
     
-    @RequestMapping(value = "/play", method = RequestMethod.GET)
-    public String play() {
-        return "play";
-    }
     
     @RequestMapping(value = "/quizzes", method = RequestMethod.GET)
     public String getQuizzes(Model model) {
@@ -36,9 +35,12 @@ public class QuizController {
     }
     
     @RequestMapping(value = "/quizzes", method = RequestMethod.POST)
-    public String postQuiz(@RequestParam String name) {
-        Quiz quiz = new Quiz();
-        quiz.setName(name);
+    public String postQuiz(@Valid @ModelAttribute Quiz quiz, BindingResult BindingResult) {
+        if (BindingResult.hasErrors()) {
+            return "redirect:/quizzes";
+        }
+//        Quiz quiz = new Quiz();
+//        quiz.setName(name);
         
         quizRepository.save(quiz);
         

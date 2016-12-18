@@ -16,20 +16,21 @@
         <div>
             <h1 th:if="${question == null}">Create new question</h1>
             <h1 th:if="${question != null}" th:text="${question.question}">question text</h1>
-        </div>
-        <form th:if="${question != null}" th:action="@{/question}" method="POST">
-            <input type="text" name="id" th:value="${question.id}" />
-            <span th:each="option : ${question.options}">
-                <input type="text" name="onderNumber" th:value="${option.orderNumber}"/>
-                <input type="text" name="answer" th:value="${option.answer}"/>
-                <label>Points</label><input type="text" name="points" th:value="${option.points}"/>
-                <input type="submit" value="update" /><br/>
-            </span>
-        </form>
+        </div >
 
-        <div th:if="${question == null}">
+        <div th:if="${question != null}" >
+                <form th:each="option : ${question.options}"  th:action="@{/{id}/question(id=${quiz.id})}" method="POST">
+                    <input hidden="" type="text" name="id" th:value="${question.id}" />
+                    <input hidden="" type="text" name="orderNumber" th:value="${option.orderNumber}"/>
+                    <input type="text" name="answer" th:value="${option.answer}"/>
+                    <label>Points</label><input type="text" name="points" th:value="${option.points}"/>
+                    <input type="submit" value="update" /><br/>
+                </form>    
+        </div>
+
+        <div th:if="${question == null}" >
             <p>Options</p>
-            <form th:action="@{/question}" method="POST">
+            <form th:action="@{/{id}/question(id=${quiz.id})}" method="POST">
                 <span >
                     <input type="text" name="questionText"/><br/> 
                     <input type="text" name="answer1"/> <label>Points</label><input type="text" name="points1"/><br/>

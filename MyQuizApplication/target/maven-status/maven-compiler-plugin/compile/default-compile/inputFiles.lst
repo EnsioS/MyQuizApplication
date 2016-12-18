@@ -2,8 +2,10 @@ C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\repository\
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\domain\Question.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\controller\QuizController.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\repository\AnswerRepository.java
+C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\service\QuizService.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\repository\QuizRepository.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\domain\Quiz.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\QuizApplication.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\domain\Answer.java
 C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\controller\QuestionController.java
+C:\Users\Ensio\MyQuizApplication\MyQuizApplication\src\main\java\wad\controller\PlayController.java

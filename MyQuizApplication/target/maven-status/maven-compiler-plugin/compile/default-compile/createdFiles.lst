@@ -4,6 +4,8 @@ wad\domain\Answer.class
 wad\QuizApplication.class
 wad\controller\QuestionController.class
 wad\repository\QuizRepository.class
+wad\controller\PlayController.class
 wad\repository\AnswerRepository.class
+wad\service\QuizService.class
 wad\domain\Question.class
 wad\controller\QuizController.class

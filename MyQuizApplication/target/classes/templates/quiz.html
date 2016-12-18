@@ -15,13 +15,13 @@
         <div>
             <ol>
                 <li th:each="question : ${questions}" >
-                    <a th:href="@{/question/{id}(id=${question.id})}" th:text="${question.question}">link to question</a>
+                    <a th:href="@{/{id}/question/{questionId}(id=${quiz.id}, questionId=${question.id})}" th:text="${question.question}">link to question</a>
                 </li>
             </ol>
         </div>
 
         <div>
-            <a th:href="@{/question}"> Create new Question</a>            
+            <a th:href="@{/{id}/question(id=${quiz.id})}"> Create new Question</a>            
             <br/>
             <p>Add existing question</p>
             <form th:action="@{/quiz/{id}(id=${quiz.id})}" method="POST">
