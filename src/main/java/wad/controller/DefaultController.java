@@ -23,10 +23,10 @@ public class DefaultController {
     @Autowired
     private AnswerRepository answerRepository;
 
-    @RequestMapping("*")
-    public String redirect() {
-        return "redirect:/quizzes";
-    }
+//    @RequestMapping("*")
+//    public String redirect() {
+//        return "redirect:/quizzes";
+//    }
 
     @PostConstruct
     public void init() {
