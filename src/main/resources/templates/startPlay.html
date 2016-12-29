@@ -29,12 +29,12 @@
         <a th:href="@{/{id}/start(id=${id})}" >Update player list</a>
         
         
-        <a id="next" th:href="@{/{id}/playQuestion(id=${id})}" >next</a>
+        <a hidden="" id="next" th:href="@{/{id}/playQuestion(id=${id})}" >next</a>
         
         <br/>
         <button onclick="start()" >Next</button>
         
-        <p> Quiz starting in <span id="counter">120</span> seconds</p>
+        <p> Quiz starting in <span id="counter" th:if="${time} != null" th:text="${time}">120</span> seconds</p>
      
         <script th:src="@{/javascript/playscript.js}" />
     </body>
