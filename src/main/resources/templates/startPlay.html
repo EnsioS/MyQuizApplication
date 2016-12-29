@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
+    <head>
+        <title>Starting</title>
+        <meta charset="UTF-8"></meta>
+        <!-- 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        -->
+        <link rel="stylesheet" type="text/css" href="/css/myStyleSheet.css"/>
+    </head>
+    <body>
+        <h2>In quiz</h2>
+        <div th:each="player : ${players}">
+            <p th:text="${player}" ></p>
+        </div>
+        
+        <h3>Join quiz</h3>
+        <form th:action="@{/{id}/play(id=${id})}" method="POST">
+            <input type="text" name="nickname"/>
+            <input type="submit" value="Join"/>
+        </form>
+        <br/>
+        
+        <a th:href="@{/{id}/start(id=${id})}" >Update player list</a>
+        
+        
+        <a id="next" th:href="@{/{id}/playQuestion(id=${id})}" >next</a>
+        
+        <br/>
+        <button onclick="start()" >Next</button>
+        
+        <p> Quiz starting in <span id="counter">120</span> seconds</p>
+     
+        <script th:src="@{/javascript/playscript.js}" />
+    </body>
+</html>

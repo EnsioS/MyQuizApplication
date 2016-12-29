@@ -11,20 +11,22 @@
         <!-- 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         -->
+        <link rel="stylesheet" type="text/css" href="/css/myStyleSheet.css"/>
     </head>
     <body>
         <h1>Your quizzes</h1>
-        
+
         <div>
             <ul>
                 <li th:each="quiz : ${quizzes}" >
                     <a th:href="@{/quiz/{id}(id=${quiz.id})}" th:text="${quiz.name}" >link to single quiz</a>
+                    <a th:href="@{/{id}/start(id=${quiz.id})}">play</a>
                 </li>
             </ul>    
         </div>
-        
+
         <h2>Add new quiz</h2>
-        
+
         <div>
             <form th:action="@{/quizzes}" method="POST">
                 <input type="text" name ="name"/>

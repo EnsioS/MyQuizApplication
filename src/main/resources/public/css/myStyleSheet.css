@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28.12.2016, 22:49:19
+    Author     : Ensio
+*/
+
+a:link, a:visited {
+    background-color: red;
+    color: white;
+    padding: 4px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: white;
+    color: red;
+}
+
+a[id=next] {
+    padding: 0px 0px;
+}

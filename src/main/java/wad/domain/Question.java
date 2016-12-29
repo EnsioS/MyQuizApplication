@@ -24,10 +24,13 @@ public class Question extends AbstractPersistable<Long> {
     @ManyToMany(mappedBy = "questions")
     private List<Quiz> quizzes;
 
+    private int answeringTime;
+    
     public Question() {
         this.options = new ArrayList<>();
+        this.answeringTime = 8;
     }
-    
+        
     public String getQuestion() {
         return question;
     }
@@ -47,5 +50,12 @@ public class Question extends AbstractPersistable<Long> {
     public void setOptions(List<Answer> options) {
         this.options = options;
     }
-    
+
+    public int getAnsweringTime() {
+        return answeringTime;
+    }
+
+    public void setAnsweringTime(int answeringTime) {
+        this.answeringTime = answeringTime;
+    }
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
+    <head>
+        <title>Points</title>
+        <meta charset="UTF-8"></meta>
+        <!-- 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        -->
+        <link rel="stylesheet" type="text/css" href="/css/myStyleSheet.css"/>
+    </head>
+    <body>
+        <h1>Points</h1>
+
+        <table style="width:50%">
+            <tr>
+                <th>Player</th>
+                <th>Points</th>
+            </tr>
+            <tr th:each="player : ${players}">
+                <th th:text="${player}" ></th>
+                <th th:text="${points.get(player)}" ></th>
+            </tr>
+        </table>
+        
+<!--        <div th:each="player : ${players}">
+            <span th:text="${player}"></span>
+        </div>-->
+        
+        <br/>
+        
+        <a id="next" th:href="@{/{id}/playQuestion(id=${id})}" >next</a>
+
+    </body>
+</html>

@@ -9,6 +9,7 @@
         <title th:text="${quiz.name}" ></title>
         <meta charset="UTF-8"></meta>
         <!--        <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+        <link rel="stylesheet" type="text/css" href="/css/myStyleSheet.css"/>
     </head>
     <body>
         <h1>Quiz: <span th:text="${quiz.name}"></span> </h1>
@@ -33,6 +34,7 @@
                 
         </div>    
 
+        <a th:href="@{/quizzes}" >back</a>
 
     </body>
 </html>
