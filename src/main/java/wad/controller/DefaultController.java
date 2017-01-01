@@ -31,6 +31,10 @@ public class DefaultController {
     @PostConstruct
     public void init() {
         if (quizRepository.findAll().size() > 0) {
+            for (Question question: questionRepository.findAll()) {
+                question.setAnsweringTime(8);
+            }
+            
             return;
         }
 
