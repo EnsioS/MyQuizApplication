@@ -37,7 +37,7 @@ public class DefaultController {
         Quiz maaria = new Quiz();
         maaria.setName("määriä");
 
-        quizRepository.save(maaria);
+        maaria = quizRepository.save(maaria);
 
         Question eka = new Question();
         eka.setQuestion("Montako?");
@@ -47,13 +47,13 @@ public class DefaultController {
         Answer kaksi = new Answer();
         kaksi.setAnswer("kaksi");
         kaksi.setPoints(2);
-        answerRepository.save(yksi);
-        answerRepository.save(kaksi);
+        yksi = answerRepository.save(yksi);
+        kaksi = answerRepository.save(kaksi);
 
         eka.addOption(yksi);
         eka.addOption(kaksi);
 
-        questionRepository.save(eka);
+        eka = questionRepository.save(eka);
 
         maaria.addQuestion(eka);
 
@@ -65,13 +65,13 @@ public class DefaultController {
         Answer nelja = new Answer();
         nelja.setAnswer("neljä lisää");
         nelja.setPoints(4);
-        answerRepository.save(kolme);
-        answerRepository.save(nelja);
+        kolme = answerRepository.save(kolme);
+        nelja = answerRepository.save(nelja);
 
         toka.addOption(kolme);
         toka.addOption(nelja);
 
-        questionRepository.save(toka);
+        toka = questionRepository.save(toka);
 
         maaria.addQuestion(toka);
         quizRepository.saveAndFlush(maaria);
