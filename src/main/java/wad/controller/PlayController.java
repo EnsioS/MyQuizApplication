@@ -11,6 +11,7 @@ import wad.domain.Question;
 import wad.service.PlayService;
 
 @Controller
+@RequestMapping("/play")
 public class PlayController {
 
     @Autowired
@@ -29,7 +30,7 @@ public class PlayController {
     public String addPlayer(@PathVariable Long id, @RequestParam String nickname) {
         playService.setNickname(nickname);
         
-        return "redirect:/" + id + "/start";
+        return "redirect:/play/" + id + "/start";
     }
 
     @RequestMapping(value = "/{id}/playQuestion", method = RequestMethod.GET)

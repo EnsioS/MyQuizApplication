@@ -15,7 +15,7 @@
         <h3 th:text="${question.question}"></h3>
 
         <div th:each="option : ${question.options}">
-            <form th:action="@{/{id}/waiting(id=${id})}" method="POST">
+            <form th:action="@{/play/{id}/waiting(id=${id})}" method="POST">
                 <input hidden="" type="text" name="remainingTime" id="remainingTime" th:value="${time}"/>
                 <input hidden="" type="text" name="points" th:value="${option.points}" />
                 <span th:text="${option.answer}" ></span>
@@ -25,7 +25,7 @@
 
         <p> Remaining answering time <span id="counter" th:text="${time}">5</span></p>
 
-        <a hidden="" id="next" th:href="@{/{id}/playQuestion(id=${id})}" ></a>
+        <a hidden="" id="next" th:href="@{/play/{id}/playQuestion(id=${id})}" ></a>
 
         <script th:src="@{/javascript/playscript.js}" />
         <!--        <script src="../public/javascript/playscript.js" />-->

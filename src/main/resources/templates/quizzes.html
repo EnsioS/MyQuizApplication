@@ -17,22 +17,33 @@
         <h1>Your quizzes</h1>
 
         <div>
-            <ul>
-                <li th:each="quiz : ${quizzes}" >
-                    <a th:href="@{/quiz/{id}(id=${quiz.id})}" th:text="${quiz.name}" >link to single quiz</a>
-                    <a th:href="@{/{id}/start(id=${quiz.id})}">play</a>
-                </li>
-            </ul>    
+
+            <table th:each="quiz : ${quizzes}" >
+                <tr>
+                    <td> <a th:href="@{/quiz/{id}(id=${quiz.id})}" th:text="${quiz.name}" >link to single quiz</a> </td>
+                    <td><a th:href="@{/play/{id}/start(id=${quiz.id})}">play</a></td>
+                </tr>
+            </table>    
         </div>
 
         <h2>Add new quiz</h2>
 
         <div>
-            <form th:action="@{/quizzes}" method="POST">
-                <input type="text" name ="name"/>
-                <input type="submit" value="add"/>    
+            <form action="#" th:action="@{/quizzes}" th:object="${quiz}" method="POST">
+                <table>
+                    <tr>
+                        <td><input type="text" name="name"/> </td>
+                        <!--<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Virheviesti</td>-->
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="add"/></td>
+                    </tr>
+                </table>
             </form>
         </div>
+
+        <br/>
+        <a th:href="@{/logout}" >logout</a>
         
     </body>
 </html>

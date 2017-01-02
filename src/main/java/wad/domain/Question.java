@@ -16,8 +16,6 @@ public class Question extends AbstractPersistable<Long> {
 //    @NotBlank
     private String question;
     
-//    @NotBlank
-//    @Size(min = 2, max = 4)
     @OneToMany
     private List<Answer> options;
 

@@ -50,12 +50,6 @@ public class QuestionController {
         if (params.containsKey("id")) {
             Question question = questionRepository.findOne(Long.parseLong(params.get("id")));
             List<Answer> options = question.getOptions();
-
-//            //Testing
-//            for (Answer answer : options) {
-//                System.out.println(answer.getAnswer() + " ja orderNumber on " + answer.getOrderNumber());
-//                System.out.println("Tän pisteethän on " + answer.getPoints());
-//            }
              
             Answer answer = options.get(Integer.parseInt(params.get("orderNumber")));
             answer.setAnswer(params.get("answer"));

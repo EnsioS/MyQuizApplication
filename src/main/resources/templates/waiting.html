@@ -15,7 +15,7 @@
 
         <p> Remaining answering time <span id="counter" th:text="${time}">5</span></p>
 
-        <a hidden="" id="next" th:href="@{/{id}/points(id=${id})}" ></a>
+        <a hidden="" id="next" th:href="@{/play/{id}/points(id=${id})}" ></a>
 
         <script th:src="@{/javascript/playscript.js}" />
         <!--        <script src="../public/javascript/playscript.js" />-->
