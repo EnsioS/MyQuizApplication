@@ -35,6 +35,7 @@ public class QuizController {
     public String getQuizzes(Model model) {
         
         try {
+            //if user is logged in wiev users quizzes 
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
             Account owner = accountRepository.findByUsername(auth.getName());
             model.addAttribute("quizzes", quizRepository.findByOwner(owner));  
