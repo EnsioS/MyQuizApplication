@@ -1,0 +1,12 @@
+Short application description
+
+After logging in Users can create quizzes and questions and add questions to quizzes.
+User can also lead playing of quiz.
+
+Players can choose nicname and then play quiz.
+
+Admin can create new Users.
+
+
+Playing quizzes is not yet ready. Players should see question pages at same time, and only the User leading quizplay could
+change to next page.
